@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="course.css">
+    <script src="courses.js"></script>
+    <script>
+        
+        function getURLParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        
+        function displaySelectedCourses() {
+            const courses = getURLParameter('courses');
+            const prices = getURLParameter('prices');
+
+            if (!courses || !prices) {
+                document.getElementById('course-list').innerHTML = "<p>No courses selected.</p>";
+                return;
+            }
+
+            const courseArray = courses.split(',');
+            const priceArray = prices.split(',');
+
+            let total = 0;
+            let courseHTML = '';
+
+            for (let i = 0; i < courseArray.length; i++) {
+                courseHTML += `<li>${courseArray[i]} - R${priceArray[i]}</li>`;
+                total += parseFloat(priceArray[i]);
+            }
+
+            document.getElementById('course-list').innerHTML = courseHTML;
+            document.getElementById('total').textContent = `Total: R${total}`;
+        }
+
+        
+        window.onload = displaySelectedCourses;
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Screenshot (62).png" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Courses.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Checkout</h1>
+
+    <div class="checkout-container">
+        <h3>Selected Courses:</h3>
+        <ul id="course-list"></ul>
+        <p id="total"></p>
+        <button class="checkout-btn">Proceed to Payment</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Month Courses</title>
+    <link rel="stylesheet" href="course.css">
+    <script>
+        let selectedCourses = [];
+
+        function toggleCourseSelection(courseName, price) {
+            const index = selectedCourses.findIndex(item => item.course === courseName);
+            if (index === -1) {
+                selectedCourses.push({ course: courseName, price: price });
+            } else {
+                selectedCourses.splice(index, 1);
+            }
+            console.log("Selected courses:", selectedCourses);
+        }
+
+        function goToCheckout() {
+            const courses = selectedCourses.map(item => item.course).join(',');
+            const prices = selectedCourses.map(item => item.price).join(',');
+            window.location.href = `checkout.html?courses=${encodeURIComponent(courses)}&prices=${encodeURIComponent(prices)}`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Screenshot (62).png" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Courses.html">Courses</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>6 Month Courses</h1>
+
+    <div class="courses-container">
+       
+        <div class="course-box">
+            <h3>First Aid: R1500</h3>
+            <p>Purpose: To provide first aid awareness and basic life support.</p>
+            <ul>
+                <li>Wounds and bleeding</li>
+                <li>Burns and fractures</li>
+                <li>Emergency scene management</li>
+                <li>Cardio-Pulmonary Resuscitation (CPR)</li>
+                <li>Respiratory distress (choking, blocked airway)</li>
+            </ul>
+            <input type="checkbox" id="firstAid" onclick="toggleCourseSelection('First Aid', 1500)"> Select First Aid Course
+        </div>
+
+        
+        <div class="course-box">
+            <h3>Sewing: R1500</h3>
+            <p>Purpose: To provide alterations and new garment tailoring services.</p>
+            <ul>
+                <li>Types of stitches</li>
+                <li>Threading a sewing machine</li>
+                <li>Sewing buttons, zips, hems, and seams</li>
+                <li>Alterations</li>
+                <li>Designing and sewing new garments</li>
+            </ul>
+            <input type="checkbox" id="sewing" onclick="toggleCourseSelection('Sewing', 1500)"> Select Sewing Course
+        </div>
+
+        
+        <div class="course-box">
+            <h3>Landscaping: R1500</h3>
+            <p>Purpose: To provide landscaping services for new and established gardens.</p>
+            <ul>
+                <li>Indigenous and exotic plants and trees</li>
+                <li>Fixed structures (fountains, benches, tables)</li>
+                <li>Balancing plants and trees in a garden</li>
+                <li>Aesthetics of plant shapes and colors</li>
+                <li>Garden layout</li>
+            </ul>
+            <input type="checkbox" id="landscaping" onclick="toggleCourseSelection('Landscaping', 1500)"> Select Landscaping Course
+        </div>
+
+       
+        <div class="course-box">
+            <h3>Life Skills: R1500</h3>
+            <p>Purpose: To provide skills to navigate basic life necessities.</p>
+            <ul>
+                <li>Opening a bank account</li>
+                <li>Basic labor law (know your rights)</li>
+                <li>Basic reading and writing literacy</li>
+                <li>Basic numeric literacy</li>
+            </ul>
+            <input type="checkbox" id="lifeSkills" onclick="toggleCourseSelection('Life Skills', 1500)"> Select Life Skills Course
+        </div>
+    </div>
+
+    <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout</button>
+
+</body>
+</html>

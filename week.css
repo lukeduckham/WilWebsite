@@ -1,0 +1,100 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('road.jpg');
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #000000;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+nav .logo img {
+    height: 60px;
+}
+
+ul li a:hover {
+    color: #ffcc00; 
+}
+
+
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.course-box {
+    background-color: rgba(0, 0, 0, 0.434);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.course-box h3 {
+    color: #f1c40f;
+}
+
+.course-box p {
+    font-weight: bold;
+}
+
+.course-box ul {
+    padding-left: 20px;
+}
+
+.course-box li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
+.checkout-btn {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #f1c40f;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 200px;
+    margin: 30px auto;
+}
+
+.checkout-btn:hover {
+    background-color: #e67e22;
+    color: white;
+}
